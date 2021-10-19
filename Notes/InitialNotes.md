@@ -51,3 +51,21 @@ cd frontend
 npm ci
 npm start
 ```
+
+### Deploy React front end
+https://aws.plainenglish.io/deploy-react-apps-on-amazon-s3-95bb9f5870d1
+
+Looks like I can add the S3 deploy script as a step in the package.json file as a "deploy" step.
+
+
+### Deploying the backend
+Maybe use AWS elastic beanstalk
+https://aws.amazon.com/elasticbeanstalk/getting-started/
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-sourcebundle.html
+
+Need to zip the code and stick in in an s3 bucket.
+`sudo apt install zip`
+
+Ok. zipped folder coppied into this s3 bucket:
+s3://jade-lightfeather-app-backend/lightfeather-backend.zip
+`zip lightfeather-backend.zip *`
