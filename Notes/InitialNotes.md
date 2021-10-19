@@ -31,7 +31,7 @@ Ok. Lets run the backend now.
 Ok. Sweet no issues there either. Guid comes up as expected.
 
 
-## All initial install and run commands:
+### All initial install and run commands:
 Install
 ```
 sudo apt install nodejs
