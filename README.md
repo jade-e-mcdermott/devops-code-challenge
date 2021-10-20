@@ -12,6 +12,20 @@ Fork this repo as a base. You may change any code in this repository to suit the
 * Any tools needed to deploy your infrastructure
 * All the steps needed to repeat your deployment process
 * URLs to the your deployed frontend.
+# URLS
+## Front End
+http://jade-lightfeather-app-frontend.s3-website-us-west-2.amazonaws.com
+## Back End
+http://lightfeather-backend.eba-76pas3ki.us-west-2.elasticbeanstalk.com/
+
+# Deployment Tools and Setup
+
+
+# Deployment Steps
+## Front End
+Run `frontend/buildscripts/update.sh`
+## Back End
+Run `backend/buildscripts/update.sh`
 
 # Evaluation
 You will be evaluated on the ease to replicate your infrastructure. This is a combination of quality of the instructions, as well as any scripts to automate the overall setup process.
