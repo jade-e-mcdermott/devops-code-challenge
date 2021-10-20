@@ -70,6 +70,7 @@ aws sync command.
 
 
 Serves up at: 
+Frontend url:
 http://jade-lightfeather-app-frontend.s3-website-us-west-2.amazonaws.com
 
 Serves up the page the front end serves when it can't reach the backend.
@@ -126,3 +127,26 @@ test
 ```
 eb open
 ```
+Backend url: http://lightfeather-backend.eba-76pas3ki.us-west-2.elasticbeanstalk.com/
+
+
+## Deployed URLS:
+Frontend url:
+http://jade-lightfeather-app-frontend.s3-website-us-west-2.amazonaws.com
+
+Backend url: http://lightfeather-backend.eba-76pas3ki.us-west-2.elasticbeanstalk.com/
+
+
+
+### Debugging Elastic Beanstalk deployment
+from the environment logs:
+address already in use: 8080
+
+Updating:
+
+ backend/index.js: const PORT = 8080 to const PORT = 8081
+ and 
+ frontend/src/config.js: export const API_URL = 'http://localhost:8080/' to export const API_URL = 'http://localhost:8081/'
+ Ayyyyy it works now!
+
+
