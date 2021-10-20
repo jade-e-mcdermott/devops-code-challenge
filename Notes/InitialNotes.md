@@ -54,9 +54,27 @@ npm start
 
 ### Deploy React front end
 https://aws.plainenglish.io/deploy-react-apps-on-amazon-s3-95bb9f5870d1
+https://www.newline.co/fullstack-react/articles/deploying-a-react-app-to-s3/
 
 Looks like I can add the S3 deploy script as a step in the package.json file as a "deploy" step.
 
+front end s3 bucket:
+s3://jade-lightfeather-app-frontend
+
+build front end command:
+```
+npm run build
+```
+aws sync command.
+`aws s3 sync build s3://jade-lightfeather-app-frontend`
+
+
+Serves up at: 
+http://jade-lightfeather-app-frontend.s3-website-us-west-2.amazonaws.com
+
+Serves up the page the front end serves when it can't reach the backend.
+
+Will probs want a command to create a configure an s3 bucket on demand.
 
 ### Deploying the backend
 Maybe use AWS elastic beanstalk
@@ -69,3 +87,42 @@ Need to zip the code and stick in in an s3 bucket.
 Ok. zipped folder coppied into this s3 bucket:
 s3://jade-lightfeather-app-backend/lightfeather-backend.zip
 `zip lightfeather-backend.zip *`
+
+
+Sample app url:
+http://ebnodesampleapp2-env.eba-tctmevrn.us-west-2.elasticbeanstalk.com/
+
+instructions for setting up an app with elastic beanstalk with custom code: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html
+Mkay looks like to use elastic beanstalk you have to install the elastic beanstalk cli
+https://github.com/aws/aws-elastic-beanstalk-cli-setup
+
+elb cli setup commands:
+```
+# download dependencies.
+sudo apt-get install build-essential zlib1g-dev libssl-dev libncurses-dev libffi-dev libsqlite3-dev libreadline-dev libbz2-dev
+
+# get installer
+git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git
+
+# run installer
+./aws-elastic-beanstalk-cli-setup/scripts/bundled_installer
+
+# Set env vars
+echo 'export PATH="/home/jade/.ebcli-virtual-env/executables:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
+
+echo 'export PATH=/home/jade/.pyenv/versions/3.7.2/bin:$PATH' >> /home/jade/.bash_profile && source /home/jade/.bash_profile
+```
+
+create sample elb project commands:
+```
+# Create Elastic Beanstalk repo
+eb init --platform node.js --region us-west-2
+
+# Create Elastic Beanstalk env
+eb create --sample node-express-env
+```
+
+test
+```
+eb open
+```
