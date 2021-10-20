@@ -43,6 +43,7 @@ I also scripted the instalation, you can run:
 ## Create S3 Bucket to Serve the React App
 I used these instructions as a quick refresher. They are detailed enough to set this up if you have never done it before too.
 https://www.newline.co/fullstack-react/articles/deploying-a-react-app-to-s3/
+Afterwards, update the frontend/buildscripts/update.sh with your s3 url.
 
 ## Create an Elastic Beanstalk Application and Environment
 Before you can deploy the Express app to Elastic Beanstalk, you will have to create the initial repo, app, and environment. I used the guide below, and wrote some scripts.
