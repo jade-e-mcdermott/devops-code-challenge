@@ -41,7 +41,16 @@ The Elastic Beanstalk CLI needs to be installed seperatly. There are instruction
 https://github.com/aws/aws-elastic-beanstalk-cli-setup
 
 I also scripted the instalation, you can run:
-`installElasticBeanstalkCli.sh` to automatically run all the install steps. It will need sudo to install dependencies, and it will modify your path to set 'python' to whatever version of python the ElasticBeanstalkCli wants setup to be happy so be aware of that.
+`./installElasticBeanstalkCli.sh` to automatically run all the install steps. It will need sudo to install dependencies.
+Afterwards, you will have to modify your path to add "eb", and set "python" to the version of python ElasticBeanstalkCli wants. The following command (with the dot) with export the environment variables to your current shell.
+`. exportEnvVars.sh`
+After, run this command to configure the Elastic Beanstalk repo on disk.
+`./createEBRepo.sh`
+Then, run this command to create the Elastic Beanstalk Environment and Application
+`./createEBEnv.sh `
+
+Then, you can run the initial update by running
+`./update.sh`
 
 ## Create S3 Bucket to Serve the React App
 I used these instructions as a quick refresher. They are detailed enough to set this up if you have never done this before.
@@ -53,8 +62,7 @@ Before you can deploy the Express app to Elastic Beanstalk, you will have to cre
 
 https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html
 
-`initialCereateSample.sh` will create a sample app.
-`initialCreate.sh` will create an app with the lightfeather backend code.
+`./initialCreate.sh` will create the app and environment with the lightfeather backend code.
 
 
 # Deployment Scripts
