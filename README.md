@@ -19,9 +19,42 @@ http://jade-lightfeather-app-frontend.s3-website-us-west-2.amazonaws.com
 http://lightfeather-backend.eba-76pas3ki.us-west-2.elasticbeanstalk.com/
 
 # Deployment Tools and Setup
+To re-create this environment on an ununtu machine you will need:
+* AWS CLI
+* AWS Elastic Beanstalk CI (Its in a seperate repo)
+
+Once you have those tools installed, you will need to do the following things manually on your first deployment:
+* Create an AWS S3 bucket configured for use as a static website.
+* Create an Elastic Beanstalk Application and Environment
+
+Future deployments can be mangaged by the Deploy scripts mentioned below under "Deployment Scripts"
+
+## Setup AWS CLI:
+The first part of this guide is a decent overview on setting up the AWS cli, however, instead of using brew, on Ubunutu you will use
+`sudo apt-get install awscli`
+
+## Setup Elastic Beanstalk CLI
+The Elastic beanstalk cli needs to be installed seperatly. There are instructions here: 
+https://github.com/aws/aws-elastic-beanstalk-cli-setup
+
+I also scripted the instalation, you can run:
+`installElasticBeanstalkCli.sh` to automatically run all the install steps. It will need sudo to install dependencies, and it will modify your path to set 'python' to whatever version of python the ElasticBeanstalkCli wants setup to be happy so be aware of that.
+
+## Create S3 Bucket to Serve the React App
+I used these instructions as a quick refresher. They are detailed enough to set this up if you have never done it before too.
+https://www.newline.co/fullstack-react/articles/deploying-a-react-app-to-s3/
+
+## Create an Elastic Beanstalk Application and Environment
+Before you can deploy the Express app to Elastic Beanstalk, you will have to create the initial repo, app, and environment. I used the guide below, and wrote some scripts.
+
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs_express.html
+
+`initialCereateSample.sh` will create a sample app.
+`initialCreate.sh` will create an app with the lightfeather backend code.
 
 
-# Deployment Steps
+# Deployment Scripts
+To deploy code after initial infrastructure is deployed, run these scripts.
 ## Front End
 Run `frontend/buildscripts/update.sh`
 ## Back End
