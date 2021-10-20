@@ -70,9 +70,9 @@ Then, you can run the initial update by running
 # Deployment Scripts
 To deploy code after initial infrastructure is deployed, run these scripts.
 ## Front End
-Run `frontend/buildscripts/update.sh`
+Run `./frontend/buildscripts/update.sh`
 ## Back End
-Run `backend/buildscripts/update.sh`
+Run `./backend/buildscripts/update.sh`
 
 # Evaluation
 You will be evaluated on the ease to replicate your infrastructure. This is a combination of quality of the instructions, as well as any scripts to automate the overall setup process.
