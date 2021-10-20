@@ -21,13 +21,13 @@ http://lightfeather-backend.eba-76pas3ki.us-west-2.elasticbeanstalk.com/
 # Deployment Tools and Setup
 To re-create this environment on an Ubuntu machine you will need:
 * AWS CLI
-* AWS Elastic Beanstalk CI (Its installed seperatly)
+* AWS Elastic Beanstalk CI (Its installed separately)
 
 Once you have those tools installed, you will need to perform the following steps on your first deployment:
 * Create an AWS S3 bucket configured for use as a static website.
 * Create an Elastic Beanstalk Application and Environment (Scripts for this included)
 
-Future deployments can be mangaged by the Deploy scripts mentioned below under "Deployment Scripts"
+Future deployments can be managed by the Deploy scripts mentioned below under "Deployment Scripts"
 
 ## Setup AWS CLI:
 The first part of this guide is a decent overview on setting up the AWS cli:
@@ -37,10 +37,10 @@ NOTE, instead of using brew to install the awscli package, on Ubuntu you will us
 `sudo apt-get install awscli`
 
 ## Setup Elastic Beanstalk CLI
-The Elastic Beanstalk CLI needs to be installed seperatly. There are instructions here: 
+The Elastic Beanstalk CLI needs to be installed separately. There are instructions here: 
 https://github.com/aws/aws-elastic-beanstalk-cli-setup
 
-I also scripted the instalation, you can run:
+I also scripted the installation, you can run:
 `./installElasticBeanstalkCli.sh` to automatically run all the install steps. It will need sudo to install dependencies.
 Afterwards, you will have to modify your path to add "eb", and set "python" to the version of python ElasticBeanstalkCli wants. The following command (with the dot) with export the environment variables to your current shell.
 `. exportEnvVars.sh`
