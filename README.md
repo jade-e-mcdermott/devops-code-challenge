@@ -19,31 +19,34 @@ http://jade-lightfeather-app-frontend.s3-website-us-west-2.amazonaws.com
 http://lightfeather-backend.eba-76pas3ki.us-west-2.elasticbeanstalk.com/
 
 # Deployment Tools and Setup
-To re-create this environment on an ununtu machine you will need:
+To re-create this environment on an Ubuntu machine you will need:
 * AWS CLI
-* AWS Elastic Beanstalk CI (Its in a seperate repo)
+* AWS Elastic Beanstalk CI (Its installed seperatly)
 
-Once you have those tools installed, you will need to do the following things manually on your first deployment:
+Once you have those tools installed, you will need to perform the following steps on your first deployment:
 * Create an AWS S3 bucket configured for use as a static website.
-* Create an Elastic Beanstalk Application and Environment
+* Create an Elastic Beanstalk Application and Environment (Scripts for this included)
 
 Future deployments can be mangaged by the Deploy scripts mentioned below under "Deployment Scripts"
 
 ## Setup AWS CLI:
-The first part of this guide is a decent overview on setting up the AWS cli, however, instead of using brew, on Ubunutu you will use
+The first part of this guide is a decent overview on setting up the AWS cli:
+https://aws.plainenglish.io/deploy-react-apps-on-amazon-s3-95bb9f5870d1
+
+NOTE, instead of using brew to install the awscli package, on Ubuntu you will use
 `sudo apt-get install awscli`
 
 ## Setup Elastic Beanstalk CLI
-The Elastic beanstalk cli needs to be installed seperatly. There are instructions here: 
+The Elastic Beanstalk CLI needs to be installed seperatly. There are instructions here: 
 https://github.com/aws/aws-elastic-beanstalk-cli-setup
 
 I also scripted the instalation, you can run:
 `installElasticBeanstalkCli.sh` to automatically run all the install steps. It will need sudo to install dependencies, and it will modify your path to set 'python' to whatever version of python the ElasticBeanstalkCli wants setup to be happy so be aware of that.
 
 ## Create S3 Bucket to Serve the React App
-I used these instructions as a quick refresher. They are detailed enough to set this up if you have never done it before too.
+I used these instructions as a quick refresher. They are detailed enough to set this up if you have never done this before.
 https://www.newline.co/fullstack-react/articles/deploying-a-react-app-to-s3/
-Afterwards, update the frontend/buildscripts/update.sh with your s3 url.
+Afterwards, update the script at frontend/buildscripts/update.sh. Update the variable "S3URL" with your new s3 url.
 
 ## Create an Elastic Beanstalk Application and Environment
 Before you can deploy the Express app to Elastic Beanstalk, you will have to create the initial repo, app, and environment. I used the guide below, and wrote some scripts.
